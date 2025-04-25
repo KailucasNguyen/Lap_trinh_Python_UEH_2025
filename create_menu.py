@@ -58,11 +58,33 @@ def menu(list_random):
                 index_hien_tai += 1
             print(f"Vị trí xuất hiện của các số nguyên tố: {vi_tri}")
         case 7:
-            pass
+            list_only = []
+            for i in list_random:
+                if list_random.count(i) == 1:
+                    list_only.append(i)
+            if list_only == []:
+                print(f"Không có số duy nhất trong danh sách")
+            else:
+                print(f"Các số duy nhất trong danh sách là: {list_only}")
         case 8:
-            pass
+            dic = {}
+            for i in list_random:
+                dic.update({i: list_random.count(i)})
+            print(dic)
         case 9:
-            pass
+            result = []
+            current = []
+            for i in range(len(list_random)):
+                if not current or list_random[i] < current[-1]:
+                    current.append(list_random[i])
+                else:
+                    if len(current) >= 2:
+                        result.append(current)
+                    current = [list_random[i]]
+            if len(current) >= 2:
+                result.append(current)
+            for liet_ke in result:
+                print(liet_ke)
         case 10:
             exit()
 
