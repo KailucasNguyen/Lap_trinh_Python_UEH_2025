@@ -8,6 +8,14 @@ def create_list(n):
         list_random.append(random.randint(1, 100))
     return list_random
 
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
 def menu(list_random):
     print('''---------------------------Menu---------------------------
 1. In ra danh sách vừa tạo.
@@ -40,17 +48,23 @@ def menu(list_random):
                     dem += 1
                     vi_tri.append(index_hien_tai)
                 index_hien_tai += 1
-            print(dem, vi_tri)
+            print(f"Phần tử {num} xuất hiện {dem} lần\nTại những vị trí là: {vi_tri}")
         case 6:
-            pass
+            index_hien_tai = 0
+            vi_tri = []
+            for i in list_random:
+                if is_prime(i):
+                    vi_tri.append(index_hien_tai)
+                index_hien_tai += 1
+            print(f"Vị trí xuất hiện của các số nguyên tố: {vi_tri}")
         case 7:
             pass
         case 8:
             pass
         case 9:
             pass
-
-
+        case 10:
+            exit()
 
 if __name__ == '__main__':
     n = int(input("Nhập số phần tử mảng n: "))
